@@ -186,6 +186,21 @@
   </main>
 
 </div>
+<script>
+  const sections = document.querySelectorAll('.section');
+  const tabs = document.querySelectorAll('.tabs a');
 
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 60) current = s.id;
+    });
+    tabs.forEach(a => {
+      const active = a.getAttribute('href') === '#' + current;
+      a.style.color = active ? '#2563eb' : '#666';
+      a.style.borderBottom = active ? '2px solid #2563eb' : '';
+    });
+  });
+</script>
 </body>
 </html>
